@@ -5,18 +5,20 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
-      Product p = new Product();
+
         System.out.println("Enter product data:");
         System.out.print("Name:");
         Scanner sc = new Scanner(System.in);
-        p.name = sc.nextLine();
+        String name = sc.nextLine();
         System.out.print("Price:");
-        p.price=sc.nextDouble();
+        double price=sc.nextDouble();
     System.out.print("Quantity in stock:");
-    p.quantity= sc.nextInt();
+    int quantity= sc.nextInt();
+    Product p =new Product(name,price,quantity);
+
         System.out.printf("Product data: %s, $%.2f, %d units, Total:$ %.2f %n ",p.name ,p.price, p.quantity, p.valueInStock());
         System.out.print("Enter the number of products to be added in stock:");
-        int quantity =sc.nextInt();
+        quantity =sc.nextInt();
         p.addProducts(quantity);
         System.out.println(p.quantity);
         System.out.printf(
